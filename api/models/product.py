@@ -10,7 +10,7 @@ class Product(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(30), nullable=False)
-    description: Mapped[str] = mapped_column(String(50))
+    description: Mapped[str] = mapped_column(String(255))
     price: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     discount_percentage: Mapped[Decimal] = mapped_column(Numeric(3, 2))
     orders: Mapped[List["Order"]] = relationship("Order", secondary="orders_products", back_populates="products")

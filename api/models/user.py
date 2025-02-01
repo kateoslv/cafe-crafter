@@ -8,7 +8,7 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(30), nullable=False)
+    first_name: Mapped[str] = mapped_column(String(30), nullable=False)
     last_name: Mapped[str] = mapped_column(String(30), nullable=False)
     email: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
     password: Mapped[str] = mapped_column(String(100), nullable=False)
@@ -22,7 +22,7 @@ class User(Base):
         address_ids = [address.id for address in self.addresses]
         return (
             f"User("
-            f"name='{self.name}', "
+            f"first_name='{self.first_name}', "
             f"last_name='{self.last_name}', "
             f"email='{self.email}', "
             f"addresses_ids={address_ids})"
